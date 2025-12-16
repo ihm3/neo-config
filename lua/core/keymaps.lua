@@ -16,3 +16,5 @@ keymap("n", "<C-l>", "<C-w>l")
 -- Visual mode indent fix
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
+
+vim.keymap.set('n', '<leader>e', ':Neotree filesystem reveal left<CR>')

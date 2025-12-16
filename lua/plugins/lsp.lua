@@ -1,26 +1,27 @@
 return {
-  {
+ {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-    },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
-      local lspconfig = require("lspconfig")
-
       -- C / C++
-      lspconfig.clangd.setup({})
+      vim.lsp.config("clangd", {
+        cmd = {"clangd"},
+        filetypes = { "c", "cpp", "objc", "objcpp" },
+      })
 
       -- Python
-      lspconfig.pyright.setup({})
+      vim.lsp.config("pyright", {
+        filetypes = { "python" },
+      })
 
       -- Lua
-      lspconfig.lua_ls.setup({
+      vim.lsp.config("lua_ls",{
+        cmd = {"clangd"},
+        filetypes = { "lua" },
         settings = {
           Lua = {
             runtime = { version = "LuaJIT" },
-            diagnostics = {
-              globals = { "vim" },
-            },
+            diagnostics = { globals = { "vim" } },
             workspace = {
               library = vim.api.nvim_get_runtime_file("", true),
               checkThirdParty = false,
@@ -28,6 +29,12 @@ return {
             telemetry = { enable = false },
           },
         },
+      })
+
+      vim.lsp.enable({
+        "clangd",
+        "pyright",
+        "lua_ls",
       })
     end,
   },
