@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("core.options")
-require("core.keymaps")
 require("core.autocmds")
 
 -- lazy.nvim bootstrap
@@ -22,4 +21,5 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("plugins")
+require("lazy").setup("plugins")
+require("core.keymaps")
