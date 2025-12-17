@@ -3,34 +3,30 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        -- NVChad tarzı
+        auto_install = true,
 
-    opts = {
-      ensure_installed = {
-        "c",
-        "cpp",
-        "lua",
-        "python",
-        "vim",
-        "vimdoc",
-        "query",
-      },
-
-      highlight = {
-        enable = true,
-      },
-
-      indent = {
-        enable = true,
-      },
-
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "gnn",
-          node_incremental = "grn",
-          node_decremental = "grm",
+        ensure_installed = {
+          "c",
+          "lua",
+          "python",
+          "vim",
+          "regex",
         },
-      },
-    },
+
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+          disable = { "vim", "regex" },
+        },
+
+        indent = {
+          enable = true,
+        },
+      })
+    end,
   },
 }
+

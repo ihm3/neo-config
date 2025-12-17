@@ -23,3 +23,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 require("core.keymaps")
+vim.cmd.colorscheme("ihmtheme")
