@@ -40,10 +40,3 @@ callback = function()
 vim.highlight.on_yank({ timeout = 200 })
 end,
 })
-
-
--- Trailing whitespace temizleme
-autocmd("BufWritePre", {
-pattern = "*",
-command = "%s/\\s\\+$//e",
-})

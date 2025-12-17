@@ -21,6 +21,12 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+vim.api.nvim_set_hl(0, "@keyword",  { link = "Keyword" })
+vim.api.nvim_set_hl(0, "@type",     { link = "Type" })
+vim.api.nvim_set_hl(0, "@function", { link = "Function" })
+vim.api.nvim_set_hl(0, "@constant", { link = "Constant" })
+
 require("lazy").setup("plugins")
 require("core.keymaps")
-vim.cmd.colorscheme("ihmtheme")
+vim.opt.termguicolors = true
+vim.cmd.colorscheme("monokai-pro")
