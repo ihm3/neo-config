@@ -5,6 +5,8 @@ vim.g.maplocalleader = " "
 require("core.options")
 require("core.autocmds")
 
+vim.opt.termguicolors = true
+
 -- lazy.nvim bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -28,5 +30,4 @@ vim.api.nvim_set_hl(0, "@constant", { link = "Constant" })
 
 require("lazy").setup("plugins")
 require("core.keymaps")
-vim.opt.termguicolors = true
 vim.cmd.colorscheme("monokai-pro")

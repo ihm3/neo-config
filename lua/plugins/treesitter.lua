@@ -2,36 +2,13 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
-
-    opts = {
-      auto_install = true,
-      ensure_installed = {
-        "c",
-        "cpp",
-        "lua",
-        "python",
-        "vim",
-        "vimdoc",
-        "query",
-      },
-
-      highlight = {
-        enable = true,
-      },
-
-      indent = {
-        enable = true,
-      },
-
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "gnn",
-          node_incremental = "grn",
-          node_decremental = "grm",
-        },
-      },
-    },
-  },
+    config = function()
+      require("nvim-treesitter").setup({
+        auto_install = true,
+        highlight = { enable = true },
+        indent = { enable = true },
+        additional_vim_regex_highlighting = false,
+      })
+    end
+  }
 }
