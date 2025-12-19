@@ -5,6 +5,8 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+
+  uto_close = true,
   keys = {
     { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file tree" },
     { "<leader>o", "<cmd>NvimTreeFocus<CR>", desc = "Focus file tree" },
