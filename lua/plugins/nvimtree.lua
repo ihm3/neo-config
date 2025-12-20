@@ -118,7 +118,7 @@ return {
         enable = true,
         show_on_dirs = true,
         icons = {
-          hint = "",
+          hfloat = "",
           info = "",
           warning = "",
           error = "",

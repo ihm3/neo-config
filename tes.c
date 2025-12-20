@@ -1,9 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#define METEHAN 0
-
-int a = 30;
+#define METEHAN_ADAM 0
 
 typedef int int_t;
 
