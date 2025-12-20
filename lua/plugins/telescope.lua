@@ -6,7 +6,7 @@ return {
     config = function()
       require("telescope").setup {
         defaults = {
-          border = false,
+          border = true,
           borderchars = {
             "─", "│", "─", "│",
             "╭", "╮", "╯", "╰",
@@ -23,7 +23,7 @@ return {
           layout_config = {
             prompt_position = "top",
             width = 0.8,
-            height = 0.7,
+            height = 0.8,
             preview_width = 0.6,
           },
         },

@@ -110,3 +110,69 @@ keymap("n", "<leader>bl", ":ls<CR>", vim.tbl_extend("force", opts, {
   desc = "List all buffers",
 }))
 
+-- =========================================================
+-- Git Keymaps (Gitsigns + Fugitive + Diffview)
+-- Prefix: <leader>v  (Version Control)
+-- =========================================================
+
+local opts = { noremap = true, silent = true }
+
+--========================
+-- GITSIGNS (line / hunk)
+-- ========================
+
+keymap("n", "<leader>vs", require("gitsigns").stage_hunk,
+  { desc = "Git: Stage hunk" })
+
+keymap("n", "<leader>vr", require("gitsigns").reset_hunk,
+  { desc = "Git: Reset hunk" })
+
+keymap("n", "<leader>vp", require("gitsigns").preview_hunk,
+  { desc = "Git: Preview hunk" })
+
+keymap("n", "<leader>vb", require("gitsigns").blame_line,
+  { desc = "Git: Blame line" })
+
+keymap("n", "<leader>vB", require("gitsigns").toggle_current_line_blame,
+  { desc = "Git: Toggle line blame" })
+
+keymap("n", "<leader>vd", require("gitsigns").diffthis,
+  { desc = "Git: Diff current file" })
+
+-- ========================
+-- FUGITIVE (git commands)
+-- ========================
+
+keymap("n", "<leader>vS", ":Git<CR>",
+  { desc = "Git: Status" })
+
+keymap("n", "<leader>vC", ":Git commit<CR>",
+  { desc = "Git: Commit" })
+
+keymap("n", "<leader>vP", ":Git push<CR>",
+  { desc = "Git: Push" })
+
+keymap("n", "<leader>vL", ":Git pull<CR>",
+  { desc = "Git: Pull" })
+
+keymap("n", "<leader>vA", ":Git add .<CR>",
+  { desc = "Git: Add all" })
+
+keymap("n", "<leader>vD", ":Git diff<CR>",
+  { desc = "Git: Diff (index vs working tree)" })
+
+-- ========================
+-- DIFFVIEW (history / tree)
+-- ========================
+
+keymap("n", "<leader>vo", ":DiffviewOpen<CR>",
+  { desc = "Git: Open Diffview" })
+
+keymap("n", "<leader>vc", ":DiffviewClose<CR>",
+  { desc = "Git: Close Diffview" })
+
+keymap("n", "<leader>vh", ":DiffviewFileHistory<CR>",
+  { desc = "Git: File history" })
+
+keymap("n", "<leader>vH", ":DiffviewFileHistory %<CR>",
+  { desc = "Git: Current file history" })
