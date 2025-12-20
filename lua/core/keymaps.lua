@@ -42,3 +42,71 @@ keymap("n", "<leader>t", function()
   open_term_bottom_ratio(0.3)
 end, { noremap = true, silent = true, desc = 'Terminal on horizontal' })
 
+-- ============================================================================
+-- Buffer keymaps
+-- ============================================================================
+
+local opts = { noremap = true, silent = true }
+
+-- ----------------------------------------------------------------------------
+-- Buffer navigation
+-- ----------------------------------------------------------------------------
+
+keymap("n", "<Tab>", ":bnext<CR>", vim.tbl_extend("force", opts, {
+  desc = "Go to next buffer",
+}))
+
+keymap("n", "<S-Tab>", ":bprevious<CR>", vim.tbl_extend("force", opts, {
+  desc = "Go to previous buffer",
+}))
+
+keymap("n", "<leader>bb", "<C-^>", vim.tbl_extend("force", opts, {
+  desc = "Switch to last buffer",
+}))
+
+-- ----------------------------------------------------------------------------
+-- Buffer close
+-- ----------------------------------------------------------------------------
+
+-- Close current buffer (safe)
+keymap("n", "<leader>bd", function()
+  vim.cmd("bprevious")
+  vim.cmd("bdelete #")
+end, vim.tbl_extend("force", opts, {
+  desc = "Close current buffer (safe)",
+}))
+
+-- Force close current buffer
+keymap("n", "<leader>bD", ":bdelete!<CR>", vim.tbl_extend("force", opts, {
+  desc = "Force close current buffer",
+}))
+
+-- ----------------------------------------------------------------------------
+-- Bulk buffer actions
+-- ----------------------------------------------------------------------------
+
+-- Close all buffers
+keymap("n", "<leader>ba", ":bufdo bdelete<CR>", vim.tbl_extend("force", opts, {
+  desc = "Close all buffers",
+}))
+
+-- Close all buffers except current
+keymap("n", "<leader>bo", function()
+  local current = vim.api.nvim_get_current_buf()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if buf ~= current and vim.api.nvim_buf_is_loaded(buf) then
+      vim.api.nvim_buf_delete(buf, { force = false })
+    end
+  end
+end, vim.tbl_extend("force", opts, {
+  desc = "Close all buffers except current",
+}))
+
+-- ----------------------------------------------------------------------------
+-- Buffer list
+-- ----------------------------------------------------------------------------
+
+keymap("n", "<leader>bl", ":ls<CR>", vim.tbl_extend("force", opts, {
+  desc = "List all buffers",
+}))
+
