@@ -22,7 +22,23 @@ keymap("v", ">", ">gv")
 
 -- telescope
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+keymap('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+keymap('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+keymap('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+keymap('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+-- terminal
+local function open_term_bottom_ratio(ratio)
+  local total_height = vim.o.lines
+  local cmd_height = vim.o.cmdheight
+  local height = math.floor((total_height - cmd_height) * ratio)
+
+  vim.cmd("belowright " .. height .. "split")
+  vim.cmd("terminal")
+  vim.cmd("startinsert")
+end
+
+keymap("n", "<leader>t", function()
+  open_term_bottom_ratio(0.3)
+end, { noremap = true, silent = true, desc = 'Terminal on horizontal' })
+
