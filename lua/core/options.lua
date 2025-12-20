@@ -51,3 +51,6 @@ opt.fileformats = { "unix", "dos", "mac" }
 -- Performans
 opt.updatetime = 250
 opt.timeoutlen = 400
+
+--cmd line
+opt.cmdheight = 1

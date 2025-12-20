@@ -5,6 +5,7 @@ return {
 			options = {
 				-- ...
 				theme = "monokai-pro",
+        globalstatus = true,
 				-- ...
 			},
 		})
