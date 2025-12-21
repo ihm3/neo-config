@@ -124,8 +124,7 @@ local opts = { noremap = true, silent = true }
 keymap("n", "<leader>vs", require("gitsigns").stage_hunk,
   { desc = "Git: Stage hunk" })
 
-keymap("n", "<leader>vr", require("gitsigns").reset_hunk,
-  { desc = "Git: Reset hunk" })
+--keymap("n", "<leader>vr", require("gitsigns").reset_hunk, { desc = "Git: Reset hunk" })
 
 keymap("n", "<leader>vp", require("gitsigns").preview_hunk,
   { desc = "Git: Preview hunk" })

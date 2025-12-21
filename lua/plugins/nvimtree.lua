@@ -117,12 +117,12 @@ return {
       diagnostics = {
         enable = true,
         show_on_dirs = true,
-        icons = {
-          hfloat = "",
-          info = "",
-          warning = "",
-          error = "",
-        },
+--       icons = {
+--         hfloat = "",
+--         info = "",
+--         warning = "",
+--         error = "",
+--       },
       },
     })
   end,

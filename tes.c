@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#define METEHAN_ADAM 0
+#define METEHAN_ADAM 0 dfdf d
 
 typedef int int_t;
 
