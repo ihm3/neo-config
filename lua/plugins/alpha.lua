@@ -45,6 +45,8 @@ return {
       "",
       "",
       "                 Dashboard",
+      "",
+      "",
     }
 
     -- BUTTONS
@@ -63,7 +65,11 @@ return {
       return datetime .. "  |  Ready to code"
     end
 
-    dashboard.section.footer.val = footer()
+    dashboard.section.footer.val = {
+      "",
+      "",
+      footer(),
+    }
 
     -- LAYOUT
     dashboard.config.layout = {

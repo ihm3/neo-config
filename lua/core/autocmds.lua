@@ -2,11 +2,26 @@ local autocmd = vim.api.nvim_create_autocmd
 
 
 -- Filetype bazlı indent ayarları
+--
+autocmd("FileType", {
+  pattern = { '<filetype>' },
+  callback = function()
+    vim.treesitter.start()
+  end,
+})
+
+autocmd("FileType", {
+  pattern = { 'TSUpdate' },
+  callback = function()
+    require('nvim-treesitter.parsers').cpp.install_info.generate = true
+  end,
+})
 
 
 autocmd("FileType", {
   pattern = { "lua" },
   callback = function()
+    vim.treesitter.start()
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2
     vim.opt_local.softtabstop = 2
@@ -28,6 +43,7 @@ autocmd("FileType", {
 autocmd("FileType", {
   pattern = { "python" },
   callback = function()
+    vim.treesitter.start()
     vim.opt_local.tabstop = 4
     vim.opt_local.shiftwidth = 4
     vim.opt_local.softtabstop = 4

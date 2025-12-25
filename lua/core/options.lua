@@ -8,8 +8,8 @@ opt.cursorline = true
 opt.signcolumn = "yes"
 opt.termguicolors = true
 opt.wrap = false
-opt.scrolloff = 8
-opt.sidescrolloff = 8
+opt.scrolloff = 0
+opt.sidescrolloff = 0
 opt.numberwidth=3
 
 opt.expandtab = true
