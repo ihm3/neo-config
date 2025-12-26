@@ -4,6 +4,13 @@ local autocmd = vim.api.nvim_create_autocmd
 -- Filetype bazlı indent ayarları
 --
 autocmd("FileType", {
+  pattern = { '<CMakelists.txt>' },
+  callback = function()
+    vim.g.set_fileype = 'cmake'
+  end,
+})
+
+autocmd("FileType", {
   pattern = { '<filetype>' },
   callback = function()
     vim.treesitter.start()
@@ -16,7 +23,6 @@ autocmd("FileType", {
     require('nvim-treesitter.parsers').cpp.install_info.generate = true
   end,
 })
-
 
 autocmd("FileType", {
   pattern = { "lua" },

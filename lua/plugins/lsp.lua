@@ -1,6 +1,6 @@
 return {
   {
-    "neovim/nvim-lspconfig",
+   "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "williamboman/mason.nvim",
@@ -47,9 +47,10 @@ return {
           "pyright",
           "clangd",
           "lua_ls",
+          "cmake-language-server",
         },
       })
-      
+
       ------------------------------------------------------------------
       -- YENİ NEOVIM 0.11 LSP API
       ------------------------------------------------------------------
@@ -61,6 +62,10 @@ return {
 
       -- C / C++
       vim.lsp.config("clangd", {
+        on_attach = on_attach,
+      })
+
+       vim.lsp.config("cmake-language-server", {
         on_attach = on_attach,
       })
 
@@ -83,11 +88,13 @@ return {
       ------------------------------------------------------------------
       -- AKTİF ET
       ------------------------------------------------------------------
+      automatic_enable = true,
       vim.lsp.enable({
         "python",
         "c",
         "cpp",
         "lua",
+        "cmake",
       })
     end,
   },

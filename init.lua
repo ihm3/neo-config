@@ -21,6 +21,8 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 
+vim.filetype.add({pattern={['CMakelists.txt']='cmake'}})
+
 vim.opt.rtp:prepend(lazypath)
 
 vim.api.nvim_set_hl(0, "@keyword",  { link = "Keyword" })

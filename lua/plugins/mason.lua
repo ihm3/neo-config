@@ -16,6 +16,7 @@ return {
         ensure_installed = {
           "clangd",
           "pyright",
+          --"cmake-language-server",
           "lua_ls",
         },
         automatic_installation = true,
