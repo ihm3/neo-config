@@ -3,6 +3,7 @@ local autocmd = vim.api.nvim_create_autocmd
 
 -- Filetype bazlı indent ayarları
 --
+
 autocmd("FileType", {
   pattern = { '<CMakelists.txt>' },
   callback = function()
@@ -72,4 +73,12 @@ autocmd("BufEnter", {
       vim.cmd "quit"
     end
   end
+})
+
+autocmd("BufEnter", {
+  callback = function()
+    if vim.bo.filetype ~= "alpha" then
+      vim.o.showtabline = 2
+    end
+  end,
 })
