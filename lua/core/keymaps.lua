@@ -42,6 +42,7 @@ keymap("n", "<leader>t", function()
   open_term_bottom_ratio(0.3)
 end, { noremap = true, silent = true, desc = 'Terminal on horizontal' })
 
+keymap("t", "<Esc>", "<C-\\><C-n>")
 -- ============================================================================
 -- Buffer keymaps
 -- ============================================================================
