@@ -176,3 +176,9 @@ keymap("n", "<leader>vh", ":DiffviewFileHistory<CR>",
 
 keymap("n", "<leader>vH", ":DiffviewFileHistory %<CR>",
   { desc = "Git: Current file history" })
+
+--window resize
+keymap("n", "<C-Up>", ":resize +2<CR>", { silent = true })
+keymap("n", "<C-Down>", ":resize -2<CR>", { silent = true })
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true })
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true })
